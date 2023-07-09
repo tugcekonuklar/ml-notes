@@ -265,7 +265,7 @@ changing rapidly.
 # Holt-Winter Sesional Method
 
 Holtz-Winter Sesional method comprises of forecast equation with 3
-snooting equations, Level, Trend and Seasional. We can 2 variations of
+smoothing equations, Level, Trend and Seasional. We can 2 variations of
 applications additive and multiplicative .
 
 ![](./media/image12.png){width="6.267716535433071in"
@@ -274,4 +274,80 @@ height="3.0694444444444446in"}
 Holtz-Winter can also use with a damped parameter, and is one of the
 most widely regarded methods for forecasting seasonal data.
 
+# Overview
 
+What You've Learned So Far
+Let's take a step back and understand what we've learned so far.
+
+## Methods
+There are several methods we need to pick in order to model any given time series appropriately:
+
+* Simple Exponential Smoothing
+    * Finds the level of the time series
+* Holt's Linear Trend
+    * Finds the level of the time series
+    * Additive model for linear trend
+* Exponential Trend
+    * Finds the level of the time series
+    * Multiplicative model for exponential trend
+* Holt-Winters Seasonal
+    * Finds the level of the time series
+    * Additive for trend
+    * Multiplicative and Additive for seasonal components
+
+These methods help deal with different scenarios in our time series involving:
+
+* Linear or exponential trend
+* Constant or increasing seasonality components
+
+For trends that are exponential, we would need to use a **multiplicative** model.
+
+For increasing seasonality components, we would need to use a **multiplicative** model model as well.
+
+## ETS
+Therefore we can generalize all of these models using a naming system for ETS:
+
+**ETS (Error, Trend, Seasonality)** 
+Error is the error line we saw in the time series decomposition part earlier in the course. If the error is increasing similar to an increasing seasonal components, we would need to consider a multiplicative design for the exponential model.
+
+Therefore, for each component in the ETS system, we can assign None, Multiplicative, or Additive (or N, M, A) for each of the three components in our time series.
+
+Examples: 
+A time series model that has a constant error, linear trend, and increasing seasonal components means we would need to use an ETS model of:
+* ETS(A,A,M)
+
+A time series model that has increasing error, exponential trend, and no seasonality means we would need to use an ETS model of:
+* ETS(M,M,N)
+
+
+# ETS Models
+ETS models are designed to forecast time series data by observing the trend and seasonality patterns in
+a time series, and projecting those trends into the future.
+## STEP 1: TIME SERIES DECOMPOSITION PLOT
+A time series decomposition plot allows you to observe the seasonality, trend, and error/remainder terms of a time series.
+Useful Alteryx Tool: TS Plot
+## STEP 2: DETERMINE ERROR, TREND, AND SEASONALITY
+An ETS model has three main components: error, trend, and seasonality. Each can be applied either
+additively, multiplicatively, or not at all.
+* Trend - If the trend plot is linear then we apply it additively (A). If the trend line grows or shrinks exponentially, we apply it multiplicatively (M). If there is no clear trend, no trend component is included
+(N).
+* Seasonal - If the peaks and valleys for seasonality are constant over time, we apply it additively (A). If the size of the seasonal fluctuations tends to increase or decrease with the level of time series, we apply it multiplicatively (M). If there is no seasonality, it is not applied (N).
+* Error - If the error plot has constant variance over time (peaks and valleys are about the same size), we apply it additively (A). If the error plot is fluctuating between large and small errors over time, we apply it multiplicatively (M).
+Useful Alteryx Tool: TS Plot
+## STEP 3: BUILD AND VALIDATE THE ETS MODEL
+Build the ETS model using the components determined in step 2. You can use internal and external
+validation to validate the quality of the model.
+* Internal validation: Look at in-sample error measures, particularly RMSE (Root-Mean-Square Error) and
+MASE (Mean Absolute Scaled Error).
+* External validation: Determine the accuracy measures by comparing the forecasted values with the
+holdout sample. This is especially important for comparing ETS models to other types of models, such as
+ARIMA.
+
+Pick the ETS model with lowest AIC value. If the AIC values are comparable, use calculated errors to pick one that minimizes error the most. Many software tools will automate the selection of the model by
+minimizing AIC.
+
+Useful Alteryx Tools: ETS, TS Compare
+## STEP 4: FORECAST!
+Use the best ETS model to forecast for the desired time period. Make sure to add the holdout sample
+back into the model. Plot the results along with 80% and 95% confidence intervals.
+Useful Alteryx Tool: TS Forecast
