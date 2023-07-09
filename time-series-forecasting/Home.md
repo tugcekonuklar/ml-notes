@@ -2,22 +2,19 @@
 
 Udacity Course : https://learn.udacity.com/courses/ud980 
 
-![](./media/image1.png){width="6.267716535433071in" height="3.25in"}
+![](./media/image1.png)
 
 # Basics:
 
 ## Trend:
 
-![](./media/image3.png){width="6.267716535433071in"
-height="2.9722222222222223in"}
+![](./media/image3.png)
 
 ## Seasional Plot:
 
-![](./media/image2.png){width="6.267716535433071in"
-height="3.736111111111111in"}
+![](./media/image2.png)
 
-![](./media/image6.png){width="6.267716535433071in"
-height="3.3194444444444446in"}
+![](./media/image6.png)
 
 Here is a seasonal pattern, which can show that there is a repeated
 pattern for the same time ranges.
@@ -31,11 +28,9 @@ What if we see a pattern in our data , which is not occurred with in the
 same calender year? This is cyclical pattern exist when there is a rises
 and falls that are not f a fixed period.
 
-![](./media/image14.png){width="6.267716535433071in"
-height="5.361111111111111in"}
+![](./media/image14.png)
 
-![](./media/image4.png){width="6.267716535433071in"
-height="3.138888888888889in"}
+![](./media/image4.png)
 
 **If fluctuations are not a fixed period then they are cyclical.**
 
@@ -50,13 +45,11 @@ This model uses weighted averagesf past observations and giving more
 weight to the most present observation and with weights gradually
 getting smaller in the past observations.
 
-![](./media/image15.png){width="6.267716535433071in"
-height="3.138888888888889in"}
+![](./media/image15.png)
 
 ## ETS:
 
-![](./media/image13.png){width="6.267716535433071in"
-height="2.9722222222222223in"}
+![](./media/image13.png)
 
 Each term can apply ither additevely, multiplicaively or in some cases
 lefts out of the model all together.
@@ -64,8 +57,7 @@ lefts out of the model all together.
 How to apply Error Trend and Sesional terms of an ETS model (Eror Trend
 Sesional) it is a way to apply Time Series Decomposition plot.
 
-![](./media/image16.png){width="6.267716535433071in"
-height="3.9444444444444446in"}
+![](./media/image16.png)
 
 **Data** shows the actual time series data
 
@@ -87,13 +79,11 @@ series Decomposition Plot.
 
 ## Identifying Additive or Multiplicative Terms
 
-![](./media/image7.png){width="6.267716535433071in"
-height="3.1805555555555554in"}
+![](./media/image7.png)
 
 behaviour
 
-![](./media/image5.png){width="6.267716535433071in"
-height="2.9305555555555554in"}
+![](./media/image5.png)
 
 Selecting additive or Multiplicative behaviour in terms of relies on
 analysis's ability to seeend, seasonal and error patterns.
@@ -160,8 +150,7 @@ possible time-series scenarios.
 
 # Simple Exponential Smoothing
 
-![](./media/image10.png){width="6.267716535433071in"
-height="3.9305555555555554in"}
+![](./media/image10.png)
 
 Time series does not have a trend line and does not have seasonality
 component. We would use a Simple Exponential Smoothing model.
@@ -232,8 +221,7 @@ series without trend and seasonality.
 The method builds off of a simple exponential smooting by including not
 only the level but oaalso the trend in its calculation.
 
-![](./media/image9.png){width="6.267716535433071in"
-height="2.9444444444444446in"}
+![](./media/image9.png)
 
 it calsulates level and trend smoothing calculation. It always applied
 in a linear or additive fashion.
@@ -241,15 +229,16 @@ in a linear or additive fashion.
 Holts linear model is a great model to apply to any non seasonal data
 set.
 
-# Exponential Trend Method ![](./media/image11.png){width="6.267716535433071in" height="3.138888888888889in"}
+# Exponential Trend Method 
+
+![](./media/image11.png)
 
 A variation of the holts linear tred method is Exponential Trend Method,
 it is uses Level and trend components but it multiplies them. This means
 trend will de/increase exponential rather that linear and exhibits
 forecasts with a trend growth rate by factoring rather than additiona.
 
-![](./media/image8.png){width="6.267716535433071in"
-height="3.1666666666666665in"}
+![](./media/image8.png)
 
 # Damped Trend Method
 
@@ -268,8 +257,7 @@ Holtz-Winter Sesional method comprises of forecast equation with 3
 smoothing equations, Level, Trend and Seasional. We can 2 variations of
 applications additive and multiplicative .
 
-![](./media/image12.png){width="6.267716535433071in"
-height="3.0694444444444446in"}
+![](./media/image12.png)
 
 Holtz-Winter can also use with a damped parameter, and is one of the
 most widely regarded methods for forecasting seasonal data.
