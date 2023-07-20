@@ -339,3 +339,30 @@ Useful Alteryx Tools: ETS, TS Compare
 Use the best ETS model to forecast for the desired time period. Make sure to add the holdout sample
 back into the model. Plot the results along with 80% and 95% confidence intervals.
 Useful Alteryx Tool: TS Forecast
+
+
+# Introduction to ARIMA Models (Auto Regressive Integrated Moving Average)
+
+An autoregressive integrated moving average, or ARIMA, is a statistical analysis model that uses time series data to either better understand the data set or to predict future trends. 
+
+There are two types ARIMA models:
+* Seasonal
+* Non-seasonal
+
+## Non- Seasonal
+![](./media/image17.png)
+
+(p,d,q) represents the amounth of periods for in ARIMA calculation.
+p-2 means , we will use 2 previouss periods of our time series in the autoregressive portions of the calculation. This helps to adjust the line fitted to forecast the series. 
+![](./media/image18.png)
+
+![](./media/image19.png)
+
+The differencing term refers to the process we use to transform a time series into a stationary one. (That is a series without trend or sesionality). This process clled differencing and d refers to the number of transformations used in the process.
+![](./media/image20.png)
+
+Moving Average term refers to the lag of the error component. Error component refers to the part of the time series not explained by trend or seasonality. MA looks lie linear regression models where the predictive variables are the previous q periods of errors. 
+![](./media/image21.png)
+
+[ARIMA Overview](https://www.investopedia.com/terms/a/autoregressive-integrated-moving-average-arima.asp)
+
