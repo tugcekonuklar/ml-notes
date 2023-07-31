@@ -19,8 +19,8 @@ Udacity Course : https://learn.udacity.com/courses/ud980
 Here is a seasonal pattern, which can show that there is a repeated
 pattern for the same time ranges.
 
-And also when we look ate magtitudes of ech year sales are getting
-bigger, thats mean there is a uptrend of sales.
+And also when we look at magnitudes of ech year sales are getting
+bigger, that's mean there is a uptrend of sales.
 
 ## Cyclical pattern:
 
@@ -39,9 +39,9 @@ calender it is seasonal.**
 
 # ETS Model:
 
-## Exponantel Smooting Forcasting Model:
+## Exponantel Smoothing Forcasting Model:
 
-This model uses weighted averagesf past observations and giving more
+This model uses weighted averages past observations and giving more
 weight to the most present observation and with weights gradually
 getting smaller in the past observations.
 
@@ -51,26 +51,26 @@ getting smaller in the past observations.
 
 ![](./media/image13.png)
 
-Each term can apply ither additevely, multiplicaively or in some cases
+Each term can apply other additively, multiplicative or in some cases
 lefts out of the model all together.
 
-How to apply Error Trend and Sesional terms of an ETS model (Eror Trend
-Sesional) it is a way to apply Time Series Decomposition plot.
+How to apply Error Trend and Seasonal terms of an ETS model (Error Trend
+Seasonal) it is a way to apply Time Series Decomposition plot.
 
 ![](./media/image16.png)
 
 **Data** shows the actual time series data
 
-**The seasonal** shows that there are a sesipnal patterns e can see in
-in Hotel booking example, easonal only occurs regular intervals and th
+**The seasonal** shows that there are a seasonal patterns e can see in
+in Hotel booking example, seasonal only occurs regular intervals and th
 increasing magnitude
 
-**Trend line** indicates the general corse or tendency of time series.
-It is the centered moving erage of the time series and fits between
-seasonal aks and valleys. This line concidered desesionalized
+**Trend line** indicates the general core or tendency of time series.
+It is the centered moving average of the time series and fits between
+seasonal aks and valleys. This line considered de Seasonalized
 
 **Error**: Difference between observed value and endline estimate. It is
-the piece that non accounted for combinening seasonal peace and trend
+the piece that non accounted for combining seasonal peace and trend
 peace. All time series have the residual errors help explain with trend
 and seasonality can not.
 
@@ -86,13 +86,13 @@ behaviour
 ![](./media/image5.png)
 
 Selecting additive or Multiplicative behaviour in terms of relies on
-analysis's ability to seeend, seasonal and error patterns.
+analysis's ability to seen, seasonal and error patterns.
 
 ## Time Series Scenarios
 
-Next we\'re going to be exploring several different exponential models
+Next we're going to be exploring several exponential models
 to understand how each model is different and which model should be used
-for which specific scenario you\'ll see in a time series. The possible
+for which specific scenario you'll see in a time series. The possible
 time series (TS) scenarios can be recognized by asking the following
 questions:
 
@@ -142,7 +142,7 @@ possible time-series scenarios.
 
 -   Simple Exponential Smoothing Method
 
--   Holt\'s Linear Trend Method
+-   Holt's Linear Trend Method
 
 -   Exponential Trend Method
 
@@ -223,20 +223,20 @@ only the level but oaalso the trend in its calculation.
 
 ![](./media/image9.png)
 
-it calsulates level and trend smoothing calculation. It always applied
+it calculates level and trend smoothing calculation. It always applied
 in a linear or additive fashion.
 
-Holts linear model is a great model to apply to any non seasonal data
+Holts linear model is a great model to apply to any non-seasonal data
 set.
 
 # Exponential Trend Method 
 
 ![](./media/image11.png)
 
-A variation of the holts linear tred method is Exponential Trend Method,
+A variation of the holts linear trend method is Exponential Trend Method,
 it is uses Level and trend components but it multiplies them. This means
 trend will de/increase exponential rather that linear and exhibits
-forecasts with a trend growth rate by factoring rather than additiona.
+forecasts with a trend growth rate by factoring rather than additional.
 
 ![](./media/image8.png)
 
@@ -246,14 +246,14 @@ Sometimes our model can over forecast results since the forecast
 generated display a constant trend line extrapolating values into the
 future.
 
-Damped Trend methods can apply additively and multilicative fashion.
+Damped Trend methods can apply additively and multiplicative fashion.
 
-Small phi(𝚽) meand trend line changes overtime is slow. Larger phi means
+Small phi(𝚽) mean trend line changes overtime is slow. Larger phi means
 changing rapidly.
 
-# Holt-Winter Sesional Method
+# Holt-Winter Seasonal Method
 
-Holtz-Winter Sesional method comprises of forecast equation with 3
+Holtz-Winter Seasonal method comprises of forecast equation with 3
 smoothing equations, Level, Trend and Seasional. We can 2 variations of
 applications additive and multiplicative .
 
@@ -301,7 +301,7 @@ Error is the error line we saw in the time series decomposition part earlier in 
 Therefore, for each component in the ETS system, we can assign None, Multiplicative, or Additive (or N, M, A) for each of the three components in our time series.
 
 Examples: 
-A time series model that has a constant error, linear trend, and increasing seasonal components means we would need to use an ETS model of:
+A time series model that has a constant error, linear trend, and increasing seasonal components' means we would need to use an ETS model of:
 * ETS(A,A,M)
 
 A time series model that has increasing error, exponential trend, and no seasonality means we would need to use an ETS model of:
@@ -358,7 +358,7 @@ p-2 means , we will use 2 previouss periods of our time series in the autoregres
 
 ![](./media/image19.png)
 
-The differencing term refers to the process we use to transform a time series into a stationary one. (That is a series without trend or sesionality). This process clled differencing and d refers to the number of transformations used in the process.
+The differencing term refers to the process we use to transform a time series into a stationary one. (That is a series without trend or Seasonality). This process clled differencing and d refers to the number of transformations used in the process.
 ![](./media/image20.png)
 
 Moving Average term refers to the lag of the error component. Error component refers to the part of the time series not explained by trend or seasonality. MA looks lie linear regression models where the predictive variables are the previous q periods of errors. 
