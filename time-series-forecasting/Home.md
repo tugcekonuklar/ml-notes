@@ -448,4 +448,22 @@ then MA terms suggesting.
 In our example Lag-1 is positive then we will use AR model.
 ![](./media/image26.png)
 
+## Partial Autocorrelation Function Plot (PACF)
+
+[A Gentle Introduction to Autocorrelation and Partial Autocorrelation](https://machinelearningmastery.com/gentle-introduction-autocorrelation-partial-autocorrelation/#:~:text=A%20partial%20autocorrelation%20is%20a,relationships%20of%20intervening%20observations%20removed.)
+[Partial Autocorrelation Function (PACF)](https://online.stat.psu.edu/stat510/lesson/2/2.2)
+**Partial Correlation :** The correlation between 2 variables controlling for the values of another set of variables.
+ACF calculates the correlation each of the previous points with the value, The PACF shows correlation of those points,
+controlling for the values of all previous lag variables.
+![](./media/image27.png)
+
+Inspecting PACF will suggest how many AR term you need to use to explain the autocorrelation pattern between in a time
+series.
+If the PACF drops off at a lag of k. It generally indicates the ARk model. If drops off gradually, it suggest a MS
+model.
+![](./media/image28.png)
+In this example PACF drops in lag-1 which fits our AR(1) model.
+![](./media/image29.png)
+
+
 
