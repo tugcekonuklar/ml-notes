@@ -465,5 +465,110 @@ model.
 In this example PACF drops in lag-1 which fits our AR(1) model.
 ![](./media/image29.png)
 
+## Summery:
 
+Which model is usefull:
+AR model:
 
+* If ACF shows autocorrelation by decaying to 0 while PACF cuts off quickly to 0 in lag-1, and stationary data (after
+  differenciated) has positive in lag-1. AR(1) is suitable
+  MA model:
+* If ACF is negative auto correlated at lag-1 and ACF cut sharply a few lags, and a PACF that decreases out more
+  gradualtely, MA model suits best.
+
+[Identifying the numbers of AR or MA terms in an ARIMA model](https://people.duke.edu/~rnau/411arim3.htm)
+
+* Rule 6: If the PACF of the differenced series displays a sharp cutoff and/or the lag-1 autocorrelation is
+  positive--i.e., if the series appears slightly "underdifferenced"--then consider adding an AR term to the model. The
+  lag at which the PACF cuts off is the indicated number of AR terms.
+* Rule 7: If the ACF of the differenced series displays a sharp cutoff and/or the lag-1 autocorrelation is
+  negative--i.e., if the series appears slightly "overdifferenced"--then consider adding an MA term to the model. The
+  lag at which the ACF cuts off is the indicated number of MA terms.
+
+## Integrated Component
+
+Integrated Component refers to number of times we have to difference our data set to make stationary. If a time series
+has to differenciated we consider integrated.
+For our eample, we took first difference to make stationary our data I=1, it maks our model AR(1), I(1), MA(0) = ARIMA(
+1,1,0)
+
+# Seasonal ARIMA model
+
+SARIMA uses when our time series has a seasonality. Very similar to non-sesional ARIMNA models, but we need to add few
+more term to adjust for the seasonal component.
+![](./media/30.png)
+![](./media/31.png)
+Here, **m** stands for the periods of each season.Upper **(P,D, Q)** stands for autoregressive differencing and moving
+average term for the seasonal part of ARIMA model.
+
+## Seasonal Differencing
+
+Seasonal difference in time series is a series of changes from one season to the next, For monthly data M=12 Seasonal
+difference will be difference between itself and next season moth, Jan 2015 - Jan 2016 (m=12)
+SARIMA and ARIMA ACF and PACF can show similar pattern, but lags are seasons.
+![](./media/32.png)
+
+# ARIMA Summary
+
+## ARIMA Models
+
+Summary: ARIMA which stands for Autoregressive Integrated Moving Average helps you forecast data for seasonal and
+nonseasonal data
+
+### STEP 1: TIME SERIES DECOMPOSITION PLOT
+
+A time series decomposition plot allows you to observe the seasonality, trend, and error/remainder terms of a time
+series.
+
+Useful Alteryx tool: TS Plot
+
+### STEP 2: DETERMINE THE ARIMA TERMS
+
+Nonseasonal ARIMA models are displayed in the terms (p,d,q) which stand for
+p - periods to lag for,
+d - number of transformations used to make the data stationary,
+q - lags of the error component
+
+**Stationary** - mean and variance are constant over time vs Non-Stationary - mean and variance change over time
+
+**Differencing** - take the value in the current period and subtract it by the value from the previous period. You might
+have to do this several times to make the data stationary. This is the Integrated component which is d in the model
+terms.
+
+**Autocorrelation** - How correlated a time series is with its past values, if positive at Lag-1 then AR if negative
+then MA
+
+**Partial Autocorrelation** - The correlation between 2 variables controlling for the values of another set of
+variables. If
+the partial autocorrelation drops of quickly then AR terms, if it slowly decays then MA
+
+**Seasonal ARIMA models** are denoted **(p,d,q)(P,D,Q)m**
+
+These models may require seasonal differencing in addition to non-seasonal differencing. Seasonal differencing is when
+you subtract the value from a year previous of the current value.
+
+Useful Alteryx tool: TS Plot
+
+### STEP 3: BUILD AND VALIDATE THE ARIMA MODEL
+
+Build the ARIMA model using the terms determined in step 2. You can use internal and external validation to validate the
+quality of the model.
+
+**Internal validation:** Look at in-sample error measures, particularly RMSE (Root-Mean-Square Error) and MASE (Mean
+Absolute Scaled Error).
+
+**External validation:** Determine the accuracy measures by comparing the forecasted values with the holdout sample.
+This is
+especially important for comparing ARIMA models to other types of models, such as ETS.
+
+**Pick the ARIMA model with lowest AIC value. If the AIC values are comparable, use calculated errors to pick one that
+minimizes error the most. Many software tools will automate the selection of the model by minimizing AIC.**
+
+Useful Alteryx tools: ARIMA, TS Compare
+
+### STEP 4: FORECAST!
+
+Use the best ARIMA model to forecast for the desired time period. Make sure to add the holdout sample back into the
+model. Plot the results along with 80% and 95% confidence intervals.
+
+Useful Alteryx tool: TS Forecast
