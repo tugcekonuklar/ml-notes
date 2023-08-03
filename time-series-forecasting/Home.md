@@ -508,9 +508,7 @@ difference will be difference between itself and next season moth, Jan 2015 - Ja
 SARIMA and ARIMA ACF and PACF can show similar pattern, but lags are seasons.
 ![](./media/32.png)
 
-# ARIMA Summary
-
-## ARIMA Models
+## ARIMA Summary
 
 Summary: ARIMA which stands for Autoregressive Integrated Moving Average helps you forecast data for seasonal and
 nonseasonal data
@@ -572,3 +570,23 @@ Use the best ARIMA model to forecast for the desired time period. Make sure to a
 model. Plot the results along with 80% and 95% confidence intervals.
 
 Useful Alteryx tool: TS Forecast
+
+# Analyzing and Visualizing Forecasting Results
+
+Forecast model should include all features which capture all important properties of the time series
+
+* Patterns of variations in level of trends
+* Effects of seasonality
+* Removing autocorrelation
+
+Identifiers helps us to choose the right model. Comparing criterias:
+
+* Residual Plots
+* Forcasting errors: internal/external validaions
+* Akaike information criteria.
+
+### Holdout / Validation Sample:
+
+To validate our forecast model ability to make a good forecast.
+A subset of a time series that you withhold and then use to check the accuracy of predictions from your model.
+![](./media/33.png)
