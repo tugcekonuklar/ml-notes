@@ -608,9 +608,10 @@ A good time series forecasting showed two properties:
     * If residual has other than zero, then forecasts are biased.
         * Adjusting bias is easy: if residual mean is other than zero them simply add mean value to all forecast then
           bias problem solved.
-          ![](./media/36.png)
-          if forecast residuals that do not contain these characteristics have room for improvements. Adding additional
+        * if forecast residuals that do not contain these characteristics have room for
+          improvements. Adding additional
           terms to our ETS or ARIMA model may alleviate this issue.
+          ![](./media/36.png)
 
 ## Calculating Errors
 
@@ -656,3 +657,23 @@ problems of other errors like percentage errors.
   significantly less than 1 but is relative to comparison across other models for the same series. Since this error
   measurement is relative and can be applied across models, it is accepted as one of the best metrics for error
   measurement.
+
+## Akaike Information Criterion (AIC)
+
+* Akaike Information Criterion (AIC) is a measure of a relative quality of a statistical model and used to compare
+  models.
+* An AIC of a single model can not tell us any information about model quality. It used to compare many different models
+  produced from the same time series.
+* Comparing value of different models, **the lower AIC is the best model to fit**.
+* When 2 model has close AIC measures? or what if we use 2 different model types ? Then we include calculated errors
+  too.
+  ![](./media/37.png)
+
+## Confidence Intervals
+
+* we need also define confidence level which we want our model to present upper and lower boundries for the forecast.
+* This confidence interval which is giving us an interval within which w expect our forecast to lie.
+* For example %95 forecast interval says to us, out forecast will fall in confidence interval %95 all he time.
+* Our forecasting model wont be able to predict exactly what each period will result in. This is what we set confidence
+  intervals to give us a feel for where our data may be fall in forecasted periods.
+  ![](./media/38.png)
