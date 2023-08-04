@@ -590,3 +590,69 @@ Identifiers helps us to choose the right model. Comparing criterias:
 To validate our forecast model ability to make a good forecast.
 A subset of a time series that you withhold and then use to check the accuracy of predictions from your model.
 ![](./media/33.png)
+
+## Residual Plots
+
+Residual forcasting is the difference between and observed value and forecasted value.
+A good time series forecasting showed two properties:
+
+* Residual in models are uncorrelated.
+  Plotting residual in ACF plot will allow us to see if we have used all of the information in the time series for our
+  model.
+    * For example : Here there is almost any correlation on any lags. only lag-17
+      ![](./media/34.png)
+    * Here example there are many strogly correlation in our plot
+    * ![](./media/35.png)
+    * We would like to add terms to our model to help adjust for this.
+* Residual should have ~0 mean.
+    * If residual has other than zero, then forecasts are biased.
+        * Adjusting bias is easy: if residual mean is other than zero them simply add mean value to all forecast then
+          bias problem solved.
+          ![](./media/36.png)
+          if forecast residuals that do not contain these characteristics have room for improvements. Adding additional
+          terms to our ETS or ARIMA model may alleviate this issue.
+
+## Calculating Errors
+
+[ANOTHER LOOK AT FORECAST-ACCURACY METRICS
+FOR INTERMITTENT DEMAND](https://robjhyndman.com/papers/foresight.pdf)
+
+### Scale Dependent Errors
+
+Scale dependent errors, such as mean error (ME) mean percentage error (MPE), mean absolute error (MAE) and root mean
+squared error (RMSE), are based on a set scale, which for us is our time series, and cannot be used to make comparisons
+that are on a different scale. For example, we wouldn’t take these error values from a time series model of the sheep
+population in Scotland and compare it to corn production forecast in the United States.
+
+* Mean Error (ME) shows the average of the difference between actual and forecasted values.
+* Mean Percentage Error (MPE) shows the average of the percent difference between actual and forecasted values. Both the
+  ME and MPE will help indicate whether the forecasts are biased to be disproportionately positive or negative.
+* Root Mean Squared Error (RMSE) represents the sample standard deviation of the differences between predicted values
+  and observed values. These individual differences are called residuals when the calculations are performed over the
+  data sample that was used for estimation, and are called prediction errors when computed out-of-sample. This is a
+  great measurement to use when comparing models as it shows how many deviations from the mean the forecasted values
+  fall.
+* Mean Absolute Error (MAE) takes the sum of the absolute difference from actual to forecast and averages them. It is
+  less sensitive to the occasional very large error because it does not square the errors in the calculation.
+
+### Percentage Errors
+
+Percentage errors, like MAPE, are useful because they are scale independent, so they can be used to compare forecasts
+between different data series, unlike scale dependent errors. The disadvantage is that it cannot be used if the series
+has zero values.
+
+* Mean Absolute Percentage Error (MAPE) is also often useful for purposes of reporting, because it is expressed in
+  generic percentage terms it will make sense even to someone who has no idea what constitutes a "big" error in terms of
+  dollars spent or widgets sold.
+
+### Scale-Free Errors
+
+Scale-free errors were introduced more recently to offer a scale-independent measure that doesn't have many of the
+problems of other errors like percentage errors.
+
+* Mean Absolute Scaled Error (MASE) is another relative measure of error that is applicable only to time series data. It
+  is defined as the mean absolute error of the model divided by the the mean absolute value of the first difference of
+  the series. Thus, it measures the relative reduction in error compared to a naive model. Ideally its value will be
+  significantly less than 1 but is relative to comparison across other models for the same series. Since this error
+  measurement is relative and can be applied across models, it is accepted as one of the best metrics for error
+  measurement.
