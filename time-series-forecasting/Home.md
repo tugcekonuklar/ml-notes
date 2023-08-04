@@ -677,3 +677,4 @@ problems of other errors like percentage errors.
 * Our forecasting model wont be able to predict exactly what each period will result in. This is what we set confidence
   intervals to give us a feel for where our data may be fall in forecasted periods.
   ![](./media/38.png)
+* [Confidence Intervals vs Prediction Intervals vs Tolerance Intervals](https://statisticsbyjim.com/hypothesis-testing/confidence-prediction-tolerance-intervals/)
