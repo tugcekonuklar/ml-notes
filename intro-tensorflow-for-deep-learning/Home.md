@@ -175,7 +175,7 @@ of [Google’s Machine Learning Crash Course](https://developers.google.com/mach
 
 2 different labs here:
 
-![](./media/12.png)
+![](./media/13.png)
 
 ### Summary
 
@@ -192,3 +192,30 @@ We also learned about the differences between regression and classification prob
 * **Classification**: A model that outputs a probability distribution across several categories. For example, in Fashion
   MNIST, the output was 10 probabilities, one for each of the different types of clothing. Remember, we use Softmax as
   the activation function in our last Dense layer to create this probability distribution.
+
+# Intro to CNN (Convolutional Neurol Network)
+
+There are 2 main concepts
+1- Convolutions
+2- Max-pooling
+
+## Convolutions
+
+Convolutional is a useful technique. Kernel convolution is just this process of applying the kernel or filter across
+different areas of the input image.
+
+Imagine there is a gray scale image which is 2D scale with pixels. And image has values from 0-255.
+![](./media/14.png)
+
+The idea of convolutional layer is to create another grid of numbers called the kernel or filter, which can be seen here
+3x3 matrix, then we scan kernel across the image.
+![](./media/15.png)
+Then we add the kernel to out grid like below:
+![](./media/16.png)
+
+What will happen into the corner matrix pixels?
+There are some solutions.
+
+1. Not to use those pixels in convolutions, just ignore pretend like no exist. Downside you will lose information.
+2. Add zero-padding around the matrix.  
+   ![](./media/17.png)
