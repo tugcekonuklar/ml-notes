@@ -219,3 +219,45 @@ There are some solutions.
 1. Not to use those pixels in convolutions, just ignore pretend like no exist. Downside you will lose information.
 2. Add zero-padding around the matrix.  
    ![](./media/17.png)
+
+## Max-pooling
+
+It is a process reducing the size of an input image by summarising regions.
+We select from convolutioned matrix the greatest value in the orange 2x2 pixel and add into new image matrix.
+Stride : determines the number of the pixels to slide the window across the image. in this example stride is 2. That's
+mean we will slide the our orange grid 2 pixels to right.
+![](./media/18.png)
+We downsampled the original image to the new image. The new image is depending on the grid size and the strike we
+chosed.
+
+## Recap
+
+We just learned about convolutions and max pooling.
+
+A convolution is the process of applying a filter (“kernel”) to an image. Max pooling is the process of reducing the
+size of the image through downsampling.
+
+As you will see in the following Colab notebook, convolutional layers can be added to the neural network model using the
+Conv2D layer type in Keras. This layer is similar to the Dense layer, and has weights and biases that need to be tuned
+to the right values. The Conv2D layer also has kernels (filters) whose values need to be tuned as well. So, in a Conv2D
+layer the values inside the filter matrix are the variables that get tuned in order to produce the right output.
+
+Here are some of terms that were introduced in this lesson:
+
+* CNNs: Convolutional neural network. That is, a network which has at least one convolutional layer. A typical CNN also
+  includes other types of layers, such as pooling layers and dense layers.
+* Convolution: The process of applying a kernel (filter) to an image
+* Kernel / filter: A matrix which is smaller than the input, used to transform the input into chunks
+* Padding: Adding pixels of some value, usually 0, around the input image
+* Pooling The process of reducing the size of an image through downsampling.There are several types of pooling layers.
+  For example, average pooling converts many values into a single value by taking the average. However, maxpooling is
+  the most common.
+* Maxpooling: A pooling process in which many values are converted into a single value by taking the maximum value from
+  among them.
+* Stride: the number of pixels to slide the kernel (filter) across the image.
+* Downsampling: The act of reducing the size of an image
+
+**Note: Sometimes train accurancy > test data. One of the reason can be we use big epocs and model can overfitted data and
+memorise the training data. When it comes to test data it can see some images first time thats why accurency can be lower.**
+
+[A Comprehensive Guide to Convolutional Neural Networks — the ELI5 way](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
