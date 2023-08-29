@@ -257,7 +257,61 @@ Here are some of terms that were introduced in this lesson:
 * Stride: the number of pixels to slide the kernel (filter) across the image.
 * Downsampling: The act of reducing the size of an image
 
-**Note: Sometimes train accurancy > test data. One of the reason can be we use big epocs and model can overfitted data and
-memorise the training data. When it comes to test data it can see some images first time thats why accurency can be lower.**
+**Note: Sometimes train accurancy > test data. One of the reason can be we use big epocs and model can overfitted data
+and
+memorise the training data. When it comes to test data it can see some images first time thats why accurency can be
+lower.**
 
 [A Comprehensive Guide to Convolutional Neural Networks — the ELI5 way](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
+
+# Time Series Forecasting
+
+* missing data in time-series calls imputation
+* Sometimes series are just completely unpredictable.
+    * The best you can do this is the to identify the probability distribution and find its parameters.
+* ![](./media/19.png)![](./media/20.png)![](./media/21.png)![](./media/23.png)![](./media/23.png)
+
+## Forecasting
+
+* how do you measure the performance of forcasting?
+    * Fixed partitioning: You can split time series into training, validation and test periods.
+    * If the time series has some sesionality, you should include those periods, like if time series has yearly
+      seasonality, we should partition by years.
+    * You train your model in train period and evaluate on validation period.
+    * You can iterate to find the right architecture and tune it's hyper params unit you reach the desired performance n
+      the validation period.
+    * One last tieme you can train your model Train + validation period once and then evaluate in test period.
+    * And you shoul d train your model once last time including your test period before deploy your model to production.
+    * [](./media/24.png)
+* Role Forward Partitioning
+    * You start with a short training period and graduatelly increase the period by one day/week at a time and each
+      iteration will train the model and we forecast following day/week in validation period.
+    * Negative: Require more training time
+    * Positive : closely mimic the production conditions.
+    * [](./media/25.png)
+
+## Metics
+
+* to evaluate forecasting performance we need some metrics. Some of them errors.
+* [](./media/26.png)
+* Lets look at Naive Forecast Mae value. This is our baseline
+* [](./media/27.png)
+
+* **Moving Average:**
+    * Another simple forecasting model is to compute moving average
+    * This is the mean of past N values. F.e. mean value over the last 30 days
+    * This eliminates the noice in series , but does not anticipate with trend or seasionality.
+    * But ends up worse than naive forecasting.
+    * [](./media/28.png)
+
+* One way to fix this, remove trend or seasionality from time series. For this we use **Differencing** technique
+* Here we work on difference between now and one year early, which does not have trends and seasionality.
+* Then we can work moving average on this.
+* [](./media/29.png)
+* [](./media/30.png)
+* But this wont give the poriginal time series forecast, at the end we should add value t-(t-365) value back the
+  forecasted value.
+* And result will be like this:
+* [](./media/31.png)
+* We can remove the past noises from Moving Average like here and better results
+* [](./media/32.png)
